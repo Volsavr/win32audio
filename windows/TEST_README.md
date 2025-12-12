@@ -48,12 +48,12 @@ This will:
 If you prefer to build manually:
 
 ```cmd
-mkdir test_build
-cd test_build
+cd tests
+mkdir build
+cd build
 cmake -G "Visual Studio 17 2022" -A x64 ..
 cmake --build . --config Release
-cd ..
-.\test_build\Release\encoding_test.exe
+.\Release\encoding_test.exe
 ```
 
 ## Test Coverage
