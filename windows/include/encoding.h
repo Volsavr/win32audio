@@ -9,24 +9,29 @@ namespace Encoding {
      */
     inline std::string WideToUtf8(const std::wstring& wstr)
     {
+        if (wstr.empty()) return std::string();
+
         int count = WideCharToMultiByte(
-            CP_UTF8, 
-            0, 
-            wstr.c_str(), 
-            static_cast<int>(wstr.length()), 
-            nullptr, 
-            0, 
-            nullptr, 
+            CP_UTF8,
+            0,
+            wstr.c_str(),
+            static_cast<int>(wstr.length()),
+            nullptr,
+            0,
+            nullptr,
             nullptr);
+
+        if (count == 0) return std::string();
+
         std::string str(count, 0);
         WideCharToMultiByte(
-            CP_UTF8, 
-            0, 
-            wstr.c_str(), 
-            -1, 
-            &str[0], 
-            count, 
-            nullptr, 
+            CP_UTF8,
+            0,
+            wstr.c_str(),
+            static_cast<int>(wstr.length()),
+            &str[0],
+            count,
+            nullptr,
             nullptr);
         return str;
     }
@@ -65,8 +70,10 @@ namespace Encoding {
      */
     inline std::string WideToAnsi(const std::wstring& wstr)
     {
+        if (wstr.empty()) return std::string();
+
         int count = WideCharToMultiByte(
-            CP_ACP, 
+            CP_ACP,
             0,
             wstr.c_str(),
             static_cast<int>(wstr.length()),
@@ -74,11 +81,15 @@ namespace Encoding {
             0,
             nullptr,
             nullptr);
+
+        if (count == 0) return std::string();
+
         std::string str(count, 0);
-        WideCharToMultiByte(CP_ACP,
+        WideCharToMultiByte(
+            CP_ACP,
             0,
             wstr.c_str(),
-            -1,
+            static_cast<int>(wstr.length()),
             &str[0],
             count,
             nullptr,
