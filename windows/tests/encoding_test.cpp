@@ -3,7 +3,7 @@
 #include <cassert>
 #include <string>
 #include <vector>
-#include "include/encoding.h"
+#include "../include/encoding.h"
 
 struct TestCase {
     std::wstring input;
@@ -57,7 +57,7 @@ void TestWideToUtf8() {
         {L"Crème brûlée", "Multiple French accents"},
         {L"Zürich", "German umlaut (ü)"},
         {L"Münchën", "Multiple umlauts"},
-        {L"Москва", "Russian Cyrillic"},
+        {L"Їжак", "Cyrillic"},
         {L"日本語", "Japanese characters"},
         {L"Hello 世界", "Mixed ASCII and Japanese"},
         {L"😀🎉🔥", "Emojis"},
