@@ -69,7 +69,7 @@ The test suite includes:
 - Greek alphabet (Α, β, γ)
 
 ### 2. **Complex Character Tests**
-- Russian Cyrillic (Москва)
+- Cyrillic (Їжак)
 - Japanese characters (日本語)
 - Chinese characters (扬声器)
 - Emojis (😀, 🎉, 🔥)
